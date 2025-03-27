@@ -11329,20 +11329,29 @@ body {
 .hover-card {
   position: relative;
   width: 100%;
-  height: 300px; /* Increased size */
-  border-radius: 10px;
+  height: 300px;
+  border-radius: 12px;
   overflow: hidden;
   cursor: pointer;
   text-align: center;
-  background-color: #f8f9fa;
+  background: linear-gradient(135deg, #ffffff, #f1f1f1);
   transition: all 0.3s ease-in-out;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 30px;
+  padding: 15px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
 }
+
+/* Add hover effect */
+.hover-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+
 
 /* Ensure all cards are the same height (Scoped to #projects) */
 #projects .row .col-md-6 {
@@ -11376,44 +11385,32 @@ body {
   z-index: 2;
 }
 
-h3 {
-  font-size: 1.5rem;
-  font-weight: 700;
-}
-
-#projects p {
-  font-size: 1rem;
-  color: #666;
-}
 /* Button styles */
 #projects .card-button {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   background-color: rgba(255, 255, 255, 1); /* Soft white */
   color: rgba(0, 0, 0, 0.8); /* Lighter black for softer contrast */
   border: 1px solid rgba(255, 255, 255, 0.6); /* Softer white border */
-  padding: 10px 28px; /* Wider padding to fit text */
+  padding: 8px 24px; /* Adjusted padding */
   font-size: 0.85rem; /* Small but readable */
   font-weight: 500;
   text-transform: uppercase;
-  border-radius: 6px; /* Slightly rounded corners */
-  white-space: nowrap; /* Prevents text from wrapping */
-  min-width: 120px; /* Ensures button stays wide enough */
+  border-radius: 6px;
+  white-space: nowrap;
+  min-width: 120px;
   text-align: center;
   opacity: 0;
   transition: opacity 0.3s ease-in-out, transform 0.2s ease-in-out, background-color 0.2s;
   z-index: 3;
   pointer-events: none; /* Prevent clicks until hovered */
   box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 15px; /* Less spacing below subtitle */
 }
 
 /* Enable the button only when the card is hovered */
 #projects .hover-card:hover .card-button {
   opacity: 1;
   pointer-events: auto;
-  transform: translate(-50%, -50%) scale(1.05); /* Slight zoom effect */
+  transform: scale(1.05);
 }
 
 /* Button hover effect */
@@ -11423,6 +11420,92 @@ h3 {
   border-color: rgba(255, 255, 255, 0.8);
   box-shadow: 0px 5px 12px rgba(0, 0, 0, 0.15);
 }
+
+/* Ensure the project logo is visible initially */
+.project-logo {
+  width: 100%;
+  max-width: none;
+  height: auto;
+  max-height: 100%;
+  
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  
+  z-index: 2;
+  transition: opacity 0.3s ease-in-out;
+  object-fit: contain;
+}
+
+/* Hide the logo when hovering over the card */
+.hover-card:hover .project-logo {
+  opacity: 0.4;
+}
+
+/* Center content */
+.content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+
+/* HOVER TEXT PROJECT 1 --------------------------- */
+.hover-text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.85); /* White background with slight transparency */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* Center everything */
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  z-index: 3;
+  padding: 20px;
+}
+
+
+/* Title text */
+.hover-title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 6px;
+}
+
+
+
+/* Subtitle */
+.hover-subtitle {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 12px;
+  color: gray; /* Sets text color to gray */
+}
+
+
+
+/* Show text on hover */
+.hover-card:hover .hover-text {
+  opacity: 1;
+}
+
+
+
+
+
+
+
 
 
 
