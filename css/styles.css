@@ -11324,40 +11324,40 @@ body {
   text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3); /* Subtle shadow */
 }
 
-/* Section Project icon */
-/* Style for the hover card */
+/* --- SECTION: Project Cards --- */
 .hover-card {
   position: relative;
   width: 100%;
   height: 300px;
-  border-radius: 12px;
+  border-radius: 16px;
   overflow: hidden;
   cursor: pointer;
-  text-align: center;
   background: linear-gradient(135deg, #ffffff, #f1f1f1);
   transition: all 0.3s ease-in-out;
-  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  padding: 15px;
-  border: 1px solid rgba(0, 0, 0, 0.05);
+  padding: 20px;
+  border: 1px solid rgba(0, 0, 0, 0.06);
 }
 
-/* Add hover effect */
-.hover-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.15);
+/* Project logo image or video */
+.project-logo,
+video.project-logo {
+  max-height: 250px;
+  width: auto;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  transition: opacity 0.3s ease-in-out;
 }
 
-
-
-/* Ensure all cards are the same height (Scoped to #projects) */
-#projects .row .col-md-6 {
-  display: flex;
+/* Shrink logo slightly on hover */
+.hover-card:hover .project-logo {
+  opacity: 0.4;
 }
 
+/* Image background container (shown on hover) */
 .image-container {
   position: absolute;
   top: 0;
@@ -11366,84 +11366,18 @@ body {
   height: 100%;
   opacity: 0;
   transition: opacity 0.3s ease-in-out;
+  z-index: 1;
 }
-
 .card-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
-
-/* Show image on hover */
 .hover-card:hover .image-container {
   opacity: 1;
 }
 
-/* Center content */
-.content {
-  position: relative;
-  z-index: 2;
-}
-
-/* Button styles */
-#projects .card-button {
-  background-color: rgba(255, 255, 255, 1); /* Soft white */
-  color: rgba(0, 0, 0, 0.8); /* Lighter black for softer contrast */
-  border: 1px solid rgba(255, 255, 255, 0.6); /* Softer white border */
-  padding: 8px 24px; /* Adjusted padding */
-  font-size: 0.85rem; /* Small but readable */
-  font-weight: 500;
-  text-transform: uppercase;
-  border-radius: 6px;
-  white-space: nowrap;
-  min-width: 120px;
-  text-align: center;
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out, transform 0.2s ease-in-out, background-color 0.2s;
-  z-index: 3;
-  pointer-events: none; /* Prevent clicks until hovered */
-  box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.1);
-  margin-top: 15px; /* Less spacing below subtitle */
-}
-
-/* Enable the button only when the card is hovered */
-#projects .hover-card:hover .card-button {
-  opacity: 1;
-  pointer-events: auto;
-  transform: scale(1.05);
-}
-
-/* Button hover effect */
-#projects .card-button:hover {
-  background-color: rgba(255, 255, 255, 0.9);
-  color: rgba(0, 0, 0, 0.75);
-  border-color: rgba(255, 255, 255, 0.8);
-  box-shadow: 0px 5px 12px rgba(0, 0, 0, 0.15);
-}
-
-/* Ensure the project logo is visible initially */
-.project-logo {
-  width: 100%;
-  max-width: none;
-  height: auto;
-  max-height: 100%;
-  
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  
-  z-index: 2;
-  transition: opacity 0.3s ease-in-out;
-  object-fit: contain;
-}
-
-/* Hide the logo when hovering over the card */
-.hover-card:hover .project-logo {
-  opacity: 0.4;
-}
-
-/* Center content */
+/* Main content container */
 .content {
   position: relative;
   z-index: 2;
@@ -11453,60 +11387,79 @@ body {
   justify-content: center;
   height: 100%;
   width: 100%;
+  text-align: center;
 }
 
-/* HOVER TEXT PROJECT 1 --------------------------- */
+/* Overlay text shown on hover */
 .hover-text {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(255, 255, 255, 0.85); /* White background with slight transparency */
+  background-color: rgba(255, 255, 255, 0.85);
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center; /* Center everything */
+  justify-content: center;
   text-align: center;
   opacity: 0;
   transition: opacity 0.3s ease-in-out;
   z-index: 3;
   padding: 20px;
 }
+.hover-card:hover .hover-text {
+  opacity: 1;
+}
 
-
-/* Title text */
+/* Title/Subtitles inside hover overlay */
 .hover-title {
   font-size: 1.6rem;
   font-weight: 700;
   color: #333;
   margin-bottom: 6px;
 }
-
-
-
-/* Subtitle */
 .hover-subtitle {
   font-size: 1rem;
-  color: #666;
+  color: gray;
   margin-bottom: 12px;
-  color: gray; /* Sets text color to gray */
 }
 
-
-
-/* Show text on hover */
-.hover-card:hover .hover-text {
+/* Button inside hover-text */
+.card-button {
+  background-color: rgba(255, 255, 255, 1);
+  color: rgba(0, 0, 0, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  padding: 8px 24px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  border-radius: 6px;
+  min-width: 120px;
+  white-space: nowrap;
+  text-align: center;
+  opacity: 0;
+  pointer-events: none;
+  box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease-in-out;
+  margin-top: 15px;
+}
+.hover-card:hover .card-button {
   opacity: 1;
+  pointer-events: auto;
+  transform: scale(1.05);
+}
+.card-button:hover {
+  background-color: rgba(255, 255, 255, 0.9);
+  color: rgba(0, 0, 0, 0.75);
+  border-color: rgba(255, 255, 255, 0.8);
+  box-shadow: 0px 5px 12px rgba(0, 0, 0, 0.15);
 }
 
-
-
-
-
-
-
-
+/* Ensure equal card height inside Bootstrap columns */
+#projects .row .col-md-6 {
+  display: flex;
+}
 
 
 /* Font text website */
